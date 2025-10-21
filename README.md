@@ -61,8 +61,17 @@ The data was acquired from 3 sources:
 └── README.md                                 # Project overview, setup instructions, and context — You’re reading it!
 ```
 
-## Key Findings 
+## Key Findings
 
-> *   Bike shares peak during commute times (8 AM and 5 PM) and on weekdays, with Thursday being the busiest day. Weekday usage significantly outnumbers weekends and holidays.
-> *   Factors: weather condition, temperature and season are strong drivers for Bike shares.
+This analysis of London's bike-sharing data from 2015-2017 revealed critical insights into usage patterns, demand drivers, and operational implications:
+* The service facilitated nearly **20 million bike rentals** over the two-year period, underscoring its significance in London's public transport.
+Ridership demonstrated **positive year-over-year growth** from 2015 to 2016, indicating increasing adoption and importance.
+* Bike rentals peak significantly during **weekday commute times (8 AM and 5 PM)**, with Thursday being the busiest day of the week.
+* Average **weekday rentals (29,213/day) are ~26% higher** than average weekend rentals (23,242/day), confirming that commuting is the primary driver of service usage, rather than leisure. Holidays generally see the lowest usage.
+* **Summer is consistently the most popular season**, with bike rentals peaking during warmer months and declining significantly in colder periods.
+* A **strong positive correlation exists between temperature and bike rentals**, where ridership increases with rising temperatures.
+* **Clear weather conditions and broken clouds are optimal** for bike sharing, while rain, snow, and thunderstorms deter usage.
+* The **optimal humidity range for bike sharing is 61-80%**. However, both the highest and lowest daily rental volumes surprisingly occurred at very high humidity levels (82% and 88.5% respectively).
+    * This suggests that while high humidity can be a deterrent, other powerful factors (like temperature or events) can override this discomfort, particularly for peak demand.
+* Hourly bike rental demand is highly concentrated, with **only the top 10% of hours classifying as "High Traffic."** This highlights the importance of precise resource allocation during predictable peak windows.
 --------------------------------------------------------------------------------------------------------------------------------------------------------

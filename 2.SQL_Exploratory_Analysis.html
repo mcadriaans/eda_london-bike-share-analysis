@@ -450,7 +450,6 @@ code {
 <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> <span class="hljs-number">1</span>
 <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-number">1</span>;
 </div></code></pre>
-<p><img src="https://github.com/user-attachments/assets/e446d67a-86f2-4105-b206-326dc31b4797" alt="image"></p>
 <p><i><b>Insight</b>:  This query transforms the hourly data into a daily summary of temperature ranges. This aggregated view is essential for analyzing macro trends, as it allows us to correlate overall daily rental volumes with average temperatures and understand the impact of temperature fluctuations throughout a single day.</i></p>
 <h3 id="6-what-are-the-humidity-levels-at-which-the-maximum-and-minimum-number-of-bike-rentals-occurred">6. What are the humidity levels at which the maximum and minimum number of bike rentals occurred?</h3>
 <pre class="hljs"><code><div><span class="hljs-keyword">WITH</span> rental_count_humidity <span class="hljs-keyword">AS</span> (

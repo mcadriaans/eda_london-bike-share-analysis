@@ -385,7 +385,6 @@ code {
 <span class="hljs-keyword">FROM</span> bike_sharing
 <span class="hljs-keyword">LIMIT</span> <span class="hljs-number">5</span>;
 </div></code></pre>
-<p><img src="https://github.com/user-attachments/assets/5a300dfb-0714-424a-9e5b-871bcbfc1e52" alt="image"></p>
 <h2 id="business-questions">Business Questions</h2>
 <h3 id="1-what-is-the-start-and-end-date-and-duration-of-bike-rental-tracking-in-our-data">1. What is the start and end date and duration of bike rental tracking in our data?</h3>
 <pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span>
@@ -394,14 +393,12 @@ code {
  (<span class="hljs-keyword">MAX</span>(<span class="hljs-built_in">timestamp</span> :: <span class="hljs-built_in">DATE</span>) - <span class="hljs-keyword">MIN</span>(<span class="hljs-built_in">timestamp</span> :: <span class="hljs-built_in">DATE</span>)) <span class="hljs-keyword">AS</span> days_tracked
 <span class="hljs-keyword">FROM</span> bike_sharing;
 </div></code></pre>
-<p><img src="https://github.com/user-attachments/assets/bca1b66d-b791-4d46-a5ee-c708872aadf1" alt="image"></p>
 <p><i><b>Insight</b>: The dataset encompasses a full two-year period, from January 4, 2015, to January 3, 2017, providing 730 days of data. This comprehensive timeframe is robust enough to identify and analyze daily, weekly, and seasonal ridership patterns with confidence.</i></p>
 <h3 id="2-what-is-the-total-amount-of-bike-rentals-during-the-730-days">2. What is the total amount of bike rentals during the 730 days?</h3>
 <pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span>
  <span class="hljs-keyword">SUM</span>(cnt) <span class="hljs-keyword">AS</span> total_bike_rentals
 <span class="hljs-keyword">FROM</span> bike_sharing;
 </div></code></pre>
-<p><img src="https://github.com/user-attachments/assets/edc78058-681b-45fb-88d2-2770dd12c6f7" alt="image"></p>
 <p><i><b>Insight</b>: Over the two-year period, nearly 20 million bike rentals were recorded. This substantial volume underscores the service's significance as a major component of London's public transport system and highlights the scale of the operational challenge.</i></p>
 <h4 id="21-what-is-the-total-amount-of-bike-rentals-per-year">2.1 What is the total amount of bike rentals per year?</h4>
 <pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span>
@@ -411,7 +408,6 @@ code {
 <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> <span class="hljs-number">1</span>
 <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-number">1</span>;
 </div></code></pre>
-<p><img src="https://github.com/user-attachments/assets/32efa997-a734-4a62-bee2-ca7c67d253fa" alt="image"></p>
 <p><i><b>Insight</b>: The analysis shows a positive year-over-year growth in ridership from 2015 to 2016. The low rental count for 2017 is expected, as the dataset only includes the first three days of that year and does not represent a full year's performance.</i></p>
 <h3 id="3-what-are-the-top-5-days-with-the-highest-number-of-bike-rentals">3. What are the top 5 days with the highest number of bike rentals?</h3>
 <pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span>

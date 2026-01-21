@@ -395,12 +395,14 @@ code {
  (<span class="hljs-keyword">MAX</span>(<span class="hljs-built_in">timestamp</span> :: <span class="hljs-built_in">DATE</span>) - <span class="hljs-keyword">MIN</span>(<span class="hljs-built_in">timestamp</span> :: <span class="hljs-built_in">DATE</span>)) <span class="hljs-keyword">AS</span> days_tracked
 <span class="hljs-keyword">FROM</span> bike_sharing;
 </div></code></pre>
+<img src="images/sql2.png" style="max-width: 100%; border-radius: 6px; margin: 20px 0;">
 <p><i><b>Insight</b>: The dataset encompasses a full two-year period, from January 4, 2015, to January 3, 2017, providing 730 days of data. This comprehensive timeframe is robust enough to identify and analyze daily, weekly, and seasonal ridership patterns with confidence.</i></p>
 <h3 id="2-what-is-the-total-amount-of-bike-rentals-during-the-730-days">2. What is the total amount of bike rentals during the 730 days?</h3>
 <pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span>
  <span class="hljs-keyword">SUM</span>(cnt) <span class="hljs-keyword">AS</span> total_bike_rentals
 <span class="hljs-keyword">FROM</span> bike_sharing;
 </div></code></pre>
+<img src="images/sql3.png" style="max-width: 100%; border-radius: 6px; margin: 20px 0;">
 <p><i><b>Insight</b>: Over the two-year period, nearly 20 million bike rentals were recorded. This substantial volume underscores the service's significance as a major component of London's public transport system and highlights the scale of the operational challenge.</i></p>
 <h4 id="21-what-is-the-total-amount-of-bike-rentals-per-year">2.1 What is the total amount of bike rentals per year?</h4>
 <pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span>
@@ -410,6 +412,7 @@ code {
 <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> <span class="hljs-number">1</span>
 <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-number">1</span>;
 </div></code></pre>
+<img src="images/sql4.png" style="max-width: 100%; border-radius: 6px; margin: 20px 0;">
 <p><i><b>Insight</b>: The analysis shows a positive year-over-year growth in ridership from 2015 to 2016. The low rental count for 2017 is expected, as the dataset only includes the first three days of that year and does not represent a full year's performance.</i></p>
 <h3 id="3-what-are-the-top-5-days-with-the-highest-number-of-bike-rentals">3. What are the top 5 days with the highest number of bike rentals?</h3>
 <pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span>
@@ -420,6 +423,7 @@ code {
 <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> <span class="hljs-number">1</span>,<span class="hljs-number">2</span>
 <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-number">3</span> <span class="hljs-keyword">DESC</span>
 <span class="hljs-keyword">LIMIT</span> <span class="hljs-number">5</span>;
+<img src="images/sql5.png" style="max-width: 100%; border-radius: 6px; margin: 20px 0;">
 </div></code></pre>
 <p><i><b>Insight</b>: The days with the highest rental counts are concentrated in the peak summer month of July. This strongly suggests that a combination of factors—warm weather, longer daylight hours, and potentially public events or holidays—creates days with exceptionally high demand. The top day, July 9th, 2015, saw over 72,000 rentals, serving as a benchmark for maximum operational capacity.</i></p>
 <h3 id="4-what-was-the-most-popular-season-for-bike-rentals-in-each-year">4. What was the most popular season for bike rentals in each year?</h3>
@@ -441,6 +445,7 @@ code {
 )
 <span class="hljs-keyword">WHERE</span> rnk = <span class="hljs-number">1</span>;
 </div></code></pre>
+<img src="images/sql6.png" style="max-width: 100%; border-radius: 6px; margin: 20px 0;">
 <p><i><b>Insight</b>: Summer was consistently the most popular season for bike rentals in both full years of data (2015 and 2016), reinforcing the strong link between warmer weather and higher ridership. The result for 2017 reflects only the first few days of January, which fall in winter.</i></p>
 <h3 id="5-show-the-minimum-average-and-maximum-actual-daily-temperatures">5. Show the minimum, average and maximum actual daily temperatures.</h3>
 <pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span>
@@ -452,6 +457,7 @@ code {
 <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> <span class="hljs-number">1</span>
 <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-number">1</span>;
 </div></code></pre>
+<img src="images/sql7.png" style="max-width: 100%; border-radius: 6px; margin: 20px 0;">
 <p><i><b>Insight</b>:  This query transforms the hourly data into a daily summary of temperature ranges. This aggregated view is essential for analyzing macro trends, as it allows us to correlate overall daily rental volumes with average temperatures and understand the impact of temperature fluctuations throughout a single day.</i></p>
 <h3 id="6-what-are-the-humidity-levels-at-which-the-maximum-and-minimum-number-of-bike-rentals-occurred">6. What are the humidity levels at which the maximum and minimum number of bike rentals occurred?</h3>
 <pre class="hljs"><code><div><span class="hljs-keyword">WITH</span> rental_count_humidity <span class="hljs-keyword">AS</span> (
@@ -473,6 +479,7 @@ code {
   <span class="hljs-keyword">MIN</span> (total_bike_rentals) <span class="hljs-keyword">AS</span> min_rentals
  <span class="hljs-keyword">FROM</span> rental_count_humidity);
 </div></code></pre>
+<img src="images/sql8.png" style="max-width: 100%; border-radius: 6px; margin: 20px 0;">
 <p><i><b>Insight</b>: This query reveals an interesting paradox: both the highest and lowest total rental volumes occurred at very high humidity levels (82% and 88.5%, respectively). This suggests that while extreme humidity can be a deterrent, it is not the sole factor. The day with the highest volume (758k rentals at 82% humidity) was likely driven by other powerful factors like ideal temperature and a special event, which were strong enough to overcome the discomfort of the high humidity.</i></p>
 <h3 id="7-find-the-7-day-moving-average-for-total-bike-rentals">7. Find the 7-day moving average for total bike rentals</h3>
 <pre class="hljs"><code><div><span class="hljs-keyword">WITH</span> daily_rentals <span class="hljs-keyword">AS</span>(
@@ -494,6 +501,7 @@ code {
 <span class="hljs-keyword">FROM</span> daily_rentals
 <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-number">1</span>;
 </div></code></pre>
+<img src="images/sql9.png" style="max-width: 100%; border-radius: 6px; margin: 20px 0;">
 <p><i><b>Insight</b>: By calculating a 7-day moving average, we can smooth out daily fluctuations and better identify the underlying weekly trends in ridership. This technique is crucial for distinguishing genuine shifts in demand from random daily noise, enabling more accurate medium-term forecasting and resource planning.</i></p>
 <h3 id="8-how-do-weekends-and-holidays-influence-bike-rental-volumes-compared-to-weekdays">8. How do weekends and holidays influence bike rental volumes compared to weekdays?</h3>
 <pre class="hljs"><code><div><span class="hljs-keyword">WITH</span> day_type_rental_counts <span class="hljs-keyword">AS</span> (
@@ -513,6 +521,7 @@ code {
  weekday_rentals / weekday_days <span class="hljs-keyword">AS</span> avg_weekday_daily_rentals
 <span class="hljs-keyword">FROM</span> day_type_rental_counts;
 </div></code></pre>
+<img src="images/sql10.png" style="max-width: 100%; border-radius: 6px; margin: 20px 0;">
 <p><i><b>Insight</b>: On an average day, weekday rental volume (29,213) is significantly higher than on weekends (23,242) and holidays (18,468). This quantifies the usage difference, showing that an average weekday is approximately 26% busier than an average weekend day, confirming that the service is driven primarily by commuting rather than leisure activities.</i></p>
 <h3 id="9-write-a-query-to-classify-the-days-into-%22high-traffic%22-if-cnt--90th-percentile-%22medium-traffic%22-between-50th-and-90th-percentile-and-%22low-traffic%22-below-the-50th-percentilewhat-percentage-of-the-dataset-falls-in-the-high-traffic-category">9. Write a query to classify the days into &quot;High Traffic&quot; (if cnt &gt; 90th percentile), &quot;Medium Traffic&quot; (between 50th and 90th percentile), and &quot;Low Traffic&quot; (below the 50th percentile).What percentage of the dataset falls in the high traffic category?</h3>
 <pre class="hljs"><code><div><span class="hljs-keyword">WITH</span> percentile <span class="hljs-keyword">AS</span> (
@@ -538,6 +547,7 @@ code {
        ) <span class="hljs-keyword">AS</span> traffic_data
        <span class="hljs-keyword">WHERE</span> traffic_lvl = <span class="hljs-string">'High Traffic'</span>)::<span class="hljs-built_in">numeric</span> / (<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">COUNT</span>(*) <span class="hljs-keyword">FROM</span> bike_sharing)::<span class="hljs-built_in">numeric</span> * <span class="hljs-number">100</span>, <span class="hljs-number">3</span>) <span class="hljs-keyword">AS</span> high_traffic_percentage;
 </div></code></pre>
+<img src="images/sql11.png" style="max-width: 100%; border-radius: 6px; margin: 20px 0;">
 <p><i><b>Insight</b>: By segmenting hourly data into traffic tiers based on rental volume percentiles, we find that only the top 10% of hours qualify as &quot;High Traffic.&quot; This confirms that peak demand is highly concentrated in specific, predictable periods (like commuter rush hours), making it crucial to focus operational resources on these critical windows to maximize service availability and revenue. </i></p>
 </body>
 </html>

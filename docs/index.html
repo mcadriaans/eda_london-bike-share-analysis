@@ -3,105 +3,169 @@
 <head>
   <meta charset="UTF-8">
   <title>London Bike Share Analysis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap" rel="stylesheet">
 
   <style>
     body {
-      background-color: #f2f2f2;
-      font-family: 'Segoe UI', sans-serif;
-      color: #333;
       margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f2f2f2;
+      color: #333;
+    }
+
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8em;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
     }
 
     .container {
-      max-width: 900px;
-      margin: 40px auto;
+      max-width: 1000px;
+      margin: 30px auto;
       padding: 20px 30px;
       background-color: #fff;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       border-radius: 8px;
     }
 
-    img.header-image {
+    .header-image {
       width: 100%;
       height: auto;
       border-radius: 6px;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
 
-    h1, h2 {
+    section {
+      margin-bottom: 40px;
+    }
+
+    h2 {
       color: #2c3e50;
-      margin-top: 25px;
+      margin-bottom: 15px;
     }
 
-    ul {
-      padding-left: 20px;
+    .card-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      list-style: none;
+      padding: 0;
     }
 
-    a {
+    .card-list li {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 15px;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .card-list li:hover {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .card-list a {
       color: #007acc;
+      font-weight: 600;
       text-decoration: none;
     }
 
-    a:hover {
+    .card-list a:hover {
       text-decoration: underline;
     }
-    ul.arrow-list {
-      list-style: none;
-      padding-left: 0;
-    }
-    ul.arrow-list li::before {
-      content: "➜ ";
-      color: #444;
-      font-weight: 600;
-    }
+
     .back-button {
-       display: inline-block; 
-      margin: 20px 0; 
-      padding: 10px 16px; 
-      background-color: #000; /* black */ 
-      color: #fff; /* white text */ 
-      text-decoration: none; 
-      border-radius: 6px; 
-      font-weight: 600; 
-      transition: background-color 0.2s ease; 
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 16px;
+      background-color: #000;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background-color 0.2s ease;
     }
-    .back-button:hover { 
-      background-color: #333; /* dark grey on hover */ 
+
+    .back-button:hover {
+      background-color: #333;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #666;
     }
   </style>
 </head>
 
 <body>
 
+  <header>
+    <h1>🚲 London Bike Share Analysis</h1>
+    <nav>
+      <a href="#contents">Contents</a>
+      <a href="#about">About</a>
+      <a href="https://mcadriaans.github.io/">Portfolio</a>
+    </nav>
+  </header>
+
   <div class="container">
     <img src="images/london_bikeshare.jpg" alt="London Bikeshare" class="header-image">
 
-    <a href="https://mcadriaans.github.io/" class="back-button">Back to Portfolio</a>
-    <h1>🚲 London Bike Share Analysis</h1>
-    <p>
-      Welcome to my analysis of London’s bike sharing system.  
-      This site brings together my Exploratory Data Analysis, SQL insights, and interactive dashboard.
-    </p>
+    <section id="intro">
+      <p>
+        Welcome to my analysis of London’s bike sharing system.  
+        This site brings together my Exploratory Data Analysis, SQL insights, and interactive dashboard.
+      </p>
+    </section>
 
-    <h2>📁 Project Contents</h2>
-    <ul class="arrow-list">
-      <li><a href="README.html">Project README (HTML)</a></li>
-      <li><a href="London Bikeshare EDA.html">EDA Notebook (HTML)</a></li>
-      <li><a href="SQL EDA.html">SQL Exploratory Analysis</a></li>
-      <li><a href="https://public.tableau.com/app/profile/michele.adriaans/viz/04022025_London_Bike_share/Dashboard1?publish=yes">Interactive Tableau Dashboard</a></li>
-      
-    </ul>
+    <section id="contents">
+      <h2>📁 Project Contents</h2>
+      <ul class="card-list">
+        <li><a href="README.html">Project README (HTML)</a></li>
+        <li><a href="London Bikeshare EDA.html">EDA Notebook (HTML)</a></li>
+        <li><a href="SQL EDA.html">SQL Exploratory Analysis</a></li>
+        <li><a href="https://public.tableau.com/app/profile/michele.adriaans/viz/04022025_London_Bike_share/Dashboard1?publish=yes">Interactive Tableau Dashboard</a></li>
+      </ul>
+    </section>
 
-    <h2>ℹ️ About This Project</h2>
-    <p>
-      This analysis explores bike‑sharing trends in London from 2015–2017, including weather impacts, seasonal patterns, and commuter behavior.
-      All files and source code are available in the GitHub repository.
-    </p>
+    <section id="about">
+      <h2>ℹ️ About This Project</h2>
+      <p>
+        This analysis explores bike‑sharing trends in London from 2015–2017, including weather impacts, seasonal patterns, and commuter behavior.
+        All files and source code are available in the GitHub repository.
+      </p>
+    </section>
 
+    <a href="https://mcadriaans.github.io/" class="back-button">← Back to Portfolio</a>
   </div>
+
+  <footer>
+    &copy; 2026 Michéle Adriaans · Built with HTML & GitHub Pages
+  </footer>
+
 </body>
 </html>
